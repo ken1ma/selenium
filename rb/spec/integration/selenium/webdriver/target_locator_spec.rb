@@ -122,7 +122,7 @@ module Selenium
         expect(driver.title).to eq('XHTML Test Page')
       end
 
-      context 'with more than two windows', except: {browser: %i[ie safari]} do
+      context 'with more than two windows', except: {browser: :safari} do
         after do
           # We need to reset driver because browsers behave differently
           # when trying to open the same blank target in a new window.
@@ -286,7 +286,7 @@ module Selenium
           expect { alert.text }.to raise_error(Selenium::WebDriver::Error::NoSuchAlertError)
         end
 
-        it 'raises NoAlertOpenError if no alert is present', except: {browser: :ie} do
+        it 'raises NoAlertOpenError if no alert is present' do
           expect { driver.switch_to.alert }.to raise_error(Selenium::WebDriver::Error::NoSuchAlertError, /alert|modal/i)
         end
 
