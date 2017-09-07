@@ -137,7 +137,7 @@ module Selenium
         expect(driver.find_element(class: 'header').text).to eq('XHTML Might Be The Future')
       end
 
-      it 'should get displayed', except: {browser: :safari} do
+      it 'should get displayed' do
         driver.navigate.to url_for('xhtmlTest.html')
         expect(driver.find_element(class: 'header')).to be_displayed
       end
