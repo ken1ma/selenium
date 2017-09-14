@@ -109,6 +109,10 @@ std::string BrowserFactory::browser_command_line_switches(void) {
   return StringUtilities::ToString(this->browser_command_line_switches_);
 }
 
+std::string BrowserFactory::ie_executable_location(void) {
+  return StringUtilities::ToString(this->ie_executable_location_);
+}
+
 void BrowserFactory::Initialize(BrowserFactorySettings settings) {
   LOG(TRACE) << "Entering BrowserFactory::Initialize";
   this->ignore_protected_mode_settings_ = settings.ignore_protected_mode_settings;
@@ -124,6 +128,10 @@ void BrowserFactory::Initialize(BrowserFactorySettings settings) {
 
   // Explicitly load MSAA so we know if it's installed
   this->oleacc_instance_handle_ = ::LoadLibrary(OLEACC_LIBRARY_NAME);
+
+  // override the value set in the constructor if specified
+  if (!settings.ie_executable_location.empty())
+    this->ie_executable_location_ = StringUtilities::ToWString(settings.ie_executable_location);
 }
 
 void BrowserFactory::ClearCache() {

@@ -312,6 +312,9 @@ void NewSessionCommandHandler::SetBrowserFactorySettings(const IECommandExecutor
     Json::Value browser_command_line_switches = this->GetCapability(capabilities, BROWSER_COMMAND_LINE_SWITCHES_CAPABILITY, Json::stringValue, "");
     factory_settings.browser_command_line_switches = browser_command_line_switches.asString();
 
+    Json::Value ie_executable_location = this->GetCapability(capabilities, IE_EXECUTABLE_LOCATION, Json::stringValue, "");
+    factory_settings.ie_executable_location = ie_executable_location.asString();
+
     Json::Value ensure_clean_session = this->GetCapability(capabilities, ENSURE_CLEAN_SESSION_CAPABILITY, Json::booleanValue, false);
     factory_settings.clear_cache_before_launch = ensure_clean_session.asBool();
 

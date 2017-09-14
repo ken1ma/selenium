@@ -51,6 +51,7 @@ void GetSessionCapabilitiesCommandHandler::ExecuteInternal(
   capabilities[REQUIRE_WINDOW_FOCUS_CAPABILITY] = executor.input_manager()->require_window_focus();
   capabilities[BROWSER_ATTACH_TIMEOUT_CAPABILITY] = executor.browser_factory()->browser_attach_timeout();
   capabilities[BROWSER_COMMAND_LINE_SWITCHES_CAPABILITY] = executor.browser_factory()->browser_command_line_switches();
+  capabilities[IE_EXECUTABLE_LOCATION] = executor.browser_factory()->ie_executable_location();
   capabilities[FORCE_CREATE_PROCESS_API_CAPABILITY] = executor.browser_factory()->force_createprocess_api();
   capabilities[ENSURE_CLEAN_SESSION_CAPABILITY] = executor.browser_factory()->clear_cache();
   capabilities[USE_PER_PROCESS_PROXY_CAPABILITY] = executor.proxy_manager()->use_per_process_proxy();

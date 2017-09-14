@@ -39,6 +39,7 @@ struct BrowserFactorySettings {
   int browser_attach_timeout;
   std::string initial_browser_url;
   std::string browser_command_line_switches;
+  std::string ie_executable_location;
 };
 
 class BrowserFactory {
@@ -63,6 +64,7 @@ class BrowserFactory {
   int browser_attach_timeout(void) const { return this->browser_attach_timeout_; }
   std::string initial_browser_url(void);
   std::string browser_command_line_switches(void);
+  std::string ie_executable_location(void);
 
   int browser_version(void) const { return this->ie_major_version_; }
 
